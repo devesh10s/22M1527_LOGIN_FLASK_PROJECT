@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit Data</title>
+</head>
+<body>
+    <h2>Submit Data</h2>
+    <form method="POST" action="{{ url_for('submit_data') }}">
+        <p>
+            <label for="date">Start Date (DD-MM-YYYY):</label><br>
+            <input type="text" id="date" name="date" required><br>
+        </p>
+        <p>
+            <label for="end_date">End Date (DD-MM-YYYY):</label><br>
+            <input type="text" id="end_date" name="end_date" required><br>
+        </p>
+        <p>
+            <label for="amount">Amount:</label><br>
+            <input type="text" id="amount" name="amount" required><br>
+        </p>
+        <p><button type="submit">Submit</button></p>
+    </form>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>
