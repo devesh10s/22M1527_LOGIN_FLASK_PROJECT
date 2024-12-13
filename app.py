@@ -69,8 +69,8 @@ def login():
             return redirect(url_for('submit_data'))
         else:
             flash('Invalid username or password.')
-            # return redirect(url_for('login'))
-            return jsonify({"error": "Unauthorized"}), 401
+            return redirect(url_for('login')),422
+            # return jsonify({"error": "Unauthorized"}), 401
 
     return render_template('login.html')
 
